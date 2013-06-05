@@ -1,0 +1,11 @@
+<div ng-controller="LoginController" class="hero-unit">
+    <fieldset>
+        {{error}}
+			<label for="user">Nickname:</label>
+        <input on-enter="loginUser()" type="text" placeholder="username..." ng-model="user" />
+        <div>
+            <input type="button" ng-click="loginUser()" value="Chat!" class="btn submit" />
+        </div>
+    </fieldset>
+</div>
+

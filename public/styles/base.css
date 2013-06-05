@@ -1,0 +1,35 @@
+﻿  .hero-unit
+  {
+    width:10em;
+    padding:1em;
+  }
+  .messageprompt
+  {
+    width:80em !important;
+    margin-left:1em;
+  }
+  #memberlist
+  {
+    position:fixed !important;
+    right: 0;
+    height: 100%;
+    top:0;
+    z-index:300;
+    -webkit-background-clip: padding-box;
+    background-color: #f2f4f8;
+    border-left: 1px solid rgba(0, 0, 0, .4);
+    -webkit-box-shadow: inset 2px 0 2px -2px #b2b9c9;
+    display: block;
+    text-align:left;
+    width:11%;
+  }
+  #messageBox
+  {
+    width:90em;
+  }
+  ul li
+  {
+    list-style-type: none;
+  }
+
+

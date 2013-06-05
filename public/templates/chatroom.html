@@ -1,0 +1,93 @@
+<style>
+    .hero-unit {
+        width: 10em;
+        padding: 1em;
+    }
+
+    .messageprompt {
+        width: 80em !important;
+        margin-left: 1em;
+    }
+
+    #memberlist {
+        position: fixed !important;
+        right: 0;
+        height: 100%;
+        top: 0;
+        z-index: 300;
+        -webkit-background-clip: padding-box;
+        background-color: #f2f4f8;
+        border-left: 1px solid rgba(0, 0, 0, .4);
+        -webkit-box-shadow: inset 2px 0 2px -2px #b2b9c9;
+        display: block;
+        text-align: left;
+        width: 11%;
+    }
+
+    #messageBox {
+        width: 90em;
+    }
+
+    ul li {
+        list-style-type: none;
+    }
+
+    #prompt {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .user {
+        font-style: bold;
+    }
+
+    #messages ul {
+        overflow: auto;
+        width: 1470px;
+        height: 340px;
+        display: block;
+    }
+</style>
+<div ng-controller="ChatroomController">
+
+    <section id="memberlist">
+        <span class="grey">Logged in members</span>
+        <hr />
+        <ul>
+            <li ng-repeat="member in members">
+                <span class="btn btn-link" ng-click="seeMemberDetail()">{{member.name}}</span>
+            </li>
+        </ul>
+    </section>
+
+    <div class="hero-unit" ng-show="showDetail">
+        <label><strong>Name:</strong> {{memberDetail.name}}</label>
+            
+        <div style="text-align: center;">
+            <a ng-click="hideHeroUnit()">Hide</a>| 
+			<a href="" ng-click="kickMember()">Kick</a>
+        </div>
+    </div>
+
+    <!--<input type="text" ng-model="testmodel" placeholder="test" />
+    <input type="button" value="t" ng-click="testclick()" />-->
+    <input type="button" class="btn" value="Leave" ng-click="leave()" />
+<hr />
+    <section id="messages">
+        <ul>
+            <li ng-repeat="message in messages | orderBy: date">
+             {{message.date | date: "hh:mm:ss"}}  - <span class="user">{{message.user}}:</span>	{{message.text}}
+            </li>
+
+        </ul>
+
+        <section>
+            <div id="prompt" class="hero-unit messageprompt">
+                <button class="btn btn-large btn-primary" id="addMessage" ng-click="addMessage()">Add message</button>
+                <textarea rows="5" id="messageBox" on-enter="addMessage()" ng-model="message"></textarea>
+            </div>
+        </section>
+
+    </section>
+
+</div>

@@ -1,0 +1,66 @@
+<div ng-controller="ChatroomsController">
+    <a id="nick" title="Change nickname" class="btn btn-link" href="/#/login"><i class="icon-hand-right icon-black"></i>Change nick</a>
+    <h3>Chatrooms</h3>
+    <p class="text-error">
+        {{error}}
+    </p>
+    <hr />
+
+    <div class="chatroomlist">
+        <ul>
+            <li ng-repeat="chatroom in chatrooms">
+                <a ng-href="#/chatrooms/{{chatroom.id}}">{{chatroom.name}}</a>
+                <div>Created: {{chatroom.date | date}}</div>
+                <hr />
+            </li>
+        </ul>
+
+        <!-- create new chatroom -->
+        <div class="input">
+            <div class="inpt">
+                <div>
+                    <strong>Add your own chatroom</strong>
+                </div>
+                <input on-enter="addchatroom()" ng-model="name" type="text" placeholder="name. . ." class="input-block-level" />
+                <div>
+                    <input type="button" ng-click="addchatroom()" value="Create new chatroom!" class="btn btn-large btn-block btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .chatroomlist {
+        margin: 0 auto;
+        border: 0.1em dotted grey;
+        border-radius: 1em;
+        height: 30em;
+        width: 80em;
+    }
+
+        .chatroomlist ul, .chatroomlist ul li {
+            margin: 0.2em;
+        }
+
+    ul {
+        text-align: center;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    #nick {
+        float: right;
+    }
+
+
+    .input {
+        margin-top: 80%;
+        width: 20%;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 3em;
+        left: 56em;
+    }
+</style>
